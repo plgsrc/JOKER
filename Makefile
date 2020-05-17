@@ -48,7 +48,7 @@ ifneq ($(BUILD),$(notdir $(CURDIR)))
 #---------------------------------------------------------------------------------
 
 #export OUTPUT	:=	$(CURDIR)/$(TARGET)
-export OUTPUT	:=	JOKERVer1.0.0
+export OUTPUT	:=	JOKER1.1
 export TOPDIR	:=	$(CURDIR)
 export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
 					$(foreach dir,$(DATA),$(CURDIR)/$(dir))
