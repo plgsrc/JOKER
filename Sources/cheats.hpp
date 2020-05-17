@@ -158,6 +158,8 @@ namespace	CTRPluginFramework
 	void mujintou_FoodP2( MenuEntry *entry );
 	void mujintou_FoodP3( MenuEntry *entry );
 // ---------------------------------------
+	void walk_put_item( MenuEntry *entry );
+	void Tree_size_change( MenuEntry *entry );
 	
 // -------------------------------------------------------------------
 	struct	CHARS_MAP

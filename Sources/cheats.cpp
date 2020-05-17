@@ -14,11 +14,11 @@ namespace	CTRPluginFramework
 	// ---------------------------------------------------------------
 	u8	motion_ekiin;						// 駅員モーション変更
 	u8	motion_kappei;						// かっぺいモーション変更
-	u8	motion_sizue_indoor;						// しずえ(室内)モーション変更
-	u8	motion_sizue_outdoor;						// しずえ(室外)モーション変更
+	u8	motion_sizue_indoor;				// しずえ(室内)モーション変更
+	u8	motion_sizue_outdoor;				// しずえ(室外)モーション変更
 	u8	motion_risa;						// リサモーション変更
 	u8	motion_keito;						// ケイトモーション変更
-	u8	motion_tanukiti;						// タヌキチモーション変更
+	u8	motion_tanukiti;					// タヌキチモーション変更
 	u16 outdoor_Frag;						// 室外アイテム判定変更　Freg
 	u16 outdoor_item;						// 室外アイテム判定変更
 	u32 change_pickup;						// 拾い方変更
@@ -26,9 +26,8 @@ namespace	CTRPluginFramework
 	u32 hosuuP2;							// 無人島P2歩数変更
 	u32 hosuuP3;							// 無人島P3歩数変更
 	u32 change_WalkScore;					// 無人島歩いた時のスコア変更
-	u32 Fast_game;							// ゲームスピード変更
 	int *g_location = (int *)0x33099F84;	// -1:室外, !=-1:室内
-	int *room_ID = (int *)0x0095133A;	// room_deta指定
+	int *room_ID = (int *)0x0095133A;		// room_deta指定
 
 	// ---------------------------------------------------------------
 	// アクション変更8byte
@@ -95,7 +94,7 @@ namespace	CTRPluginFramework
 		if( motion_ekiin ) *(u8 *)0x330F25A6 = motion_ekiin;		// 駅員モーション変更常時実行
 		if( motion_kappei ) *(u8 *)0x330D8F56 = motion_kappei;		// かっぺいモーション変更常時実行
 		if( motion_sizue_indoor ) *(u8 *)0x330DA252 = motion_sizue_indoor;		// しずえ(室内)モーション変更常時実行
-		if( motion_sizue_outdoor ) *(u8 *)0x330DB64E = motion_sizue_outdoor;		// 駅員モーション変更常時実行
+		if( motion_sizue_outdoor ) *(u8 *)0x330DB64E = motion_sizue_outdoor;		// しずえ（室外）モーション変更常時実行
 		if( motion_risa ) *(u8 *)0x330D8EFA = motion_risa;		// リサモーション変更常時実行
 		if( motion_keito ) *(u8 *)0x330CE99A = motion_keito;		// ケイトモーション変更常時実行
 		if( motion_tanukiti ) *(u8 *)0x330D90DA = motion_tanukiti;		// タヌキチモーション変更常時実行
@@ -155,7 +154,7 @@ namespace	CTRPluginFramework
 	{
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			set_action_8( 0x22 ); // 	アクショ実行
+			set_action_8( 0x22 ); // アクショ実行
 		}
 	}
 	
@@ -166,7 +165,7 @@ namespace	CTRPluginFramework
 	{
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			set_action_8( 0x23 ); // 	アクショ実行
+			set_action_8( 0x23 ); // アクショ実行
 		}
 	}
 	
@@ -177,7 +176,7 @@ namespace	CTRPluginFramework
 	{
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			set_action_8( 0x27 ); // 	アクショ実行
+			set_action_8( 0x27 ); // アクショ実行
 		}
 	}
 	
@@ -188,7 +187,7 @@ namespace	CTRPluginFramework
 	{
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			set_action_8( 0xD6 ); // 	アクショ実行
+			set_action_8( 0xD6 ); // アクショ実行
 		}
 	}
 	
@@ -199,7 +198,7 @@ namespace	CTRPluginFramework
 	{
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			set_action_8_not_indoor( 0x72 ); // 	アクショ実行
+			set_action_8_not_indoor( 0x72 ); // アクショ実行
 		}
 	}
 	
@@ -210,7 +209,7 @@ namespace	CTRPluginFramework
 	{
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			set_action_8( 0x90 ); // 	アクショ実行
+			set_action_8( 0x90 ); // アクショ実行
 		}
 	}
 	
@@ -221,7 +220,7 @@ namespace	CTRPluginFramework
 	{
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			set_action_8( 0xC0 ); // 	アクショ実行
+			set_action_8( 0xC0 ); // アクショ実行
 		}
 	}
 	
@@ -395,7 +394,7 @@ namespace	CTRPluginFramework
 	// ---------------------------------------------------------------
 	static const	std::vector< CHARS_MAP_U32 > change_player =
 	{
-		{ "村長",  0x31F49AA0 },
+		{ "村長", 0x31F49AA0 },
 		{ "サブ1", 0x31F53F20 },
 		{ "サブ2", 0x31F5E3A0 },
 		{ "サブ3", 0x31F68820 },
@@ -467,10 +466,7 @@ namespace	CTRPluginFramework
 	// ---------------------------------------------------------------
 	void Pose3( MenuEntry *entry )
 	{
-		u32 a;
-		{
-			set_action_32_not_indoor( 0x027600BB ); // 	アクショ実行
-		}
+		set_action_32_not_indoor( 0x027600BB ); // 	アクショ実行
 	}
 	
 	// ---------------------------------------------------------------
@@ -478,10 +474,7 @@ namespace	CTRPluginFramework
 	// ---------------------------------------------------------------
 	void Pose4( MenuEntry *entry )
 	{
-		u32 a;
-		{
-			set_action_32_not_indoor( 0x0616B900 ); // 	アクショ実行
-		}
+		set_action_32_not_indoor( 0x0616B900 ); // 	アクショ実行
 	}
 	
 	// ---------------------------------------------------------------
@@ -705,19 +698,21 @@ namespace	CTRPluginFramework
 	void Player1( MenuEntry *entry )
 	{
 		u32		velocity;
-		float	Flo;
+		float	*Flo; // <-- pointerに変更
+
+		Flo = (float *)0x33099E7C; // <--- 追加
 		if( entry->Hotkeys[0].IsDown() )
 		{
-			Process::Read32( 0x33099E7C, velocity );
-			Process::ReadFloat( 0x33099E7C, Flo );
-			if( velocity >= 0x41A79DB3 )
+//			Process::Read32( 0x33099E7C, velocity );  <-- 不要
+//			Process::ReadFloat( 0x33099E7C, Flo ); // <-- 削除
+			if( *Flo > 20.0 ) // <-- if( velocity >= 0x41A79DB3 )
 			{
-				Process::Write32( 0x33099E7C, 0x41A79DB3 );
+				*Flo = 20.0;  // <-- Process::Write32( 0x33099E7C, 0x41A79DB3 );
 			}
-			else if( velocity > 0 )
+			else if( *Flo > 0 ) // <-- else if( *Flovelocity > 0 )
 			{
-				Flo += 2.0;
-				Process::WriteFloat( 0x33099E7C, Flo );
+				*Flo += 2.0;
+//				Process::WriteFloat( 0x33099E7C, Flo ); <-- 削除
 			}
 		}
 	}
@@ -922,6 +917,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Island( MenuEntry *entry )
 	{
+		u16 a; // <-- ここに移動
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: Island_Item )
@@ -931,9 +928,8 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( Island_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) // <--- aiueo.Open( a );
+				Process::Write16( Island_Item[choice].id, a );
 		}
 	}
 	
@@ -949,6 +945,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Club444( MenuEntry *entry )
 	{
+		u16 a; // <-- ここに移動
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: Club444_Item )
@@ -958,9 +956,8 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( Club444_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) // <-- aiueo.Open( a );
+				Process::Write16( Club444_Item[choice].id, a );
 		}
 	}
 	
@@ -980,6 +977,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Housing( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: Housing_Item )
@@ -989,9 +988,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( Housing_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( Housing_Item[choice].id, a );
 		}
 	}
 	
@@ -1015,6 +1012,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Department_store( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: DepartmentStore_Item )
@@ -1024,9 +1023,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( DepartmentStore_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( DepartmentStore_Item[choice].id, a );
 		}
 	}
 	
@@ -1049,6 +1046,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Department_store_F2( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: DepartmentStoreF2_Item )
@@ -1058,9 +1057,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( DepartmentStoreF2_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( DepartmentStoreF2_Item[choice].id, a );
 		}
 	}
 	
@@ -1089,6 +1086,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Department_store_F3( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: DepartmentStoreF3_Item )
@@ -1098,9 +1097,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( DepartmentStoreF3_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( DepartmentStoreF3_Item[choice].id, a );
 		}
 	}
 	
@@ -1129,6 +1126,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Department_store_Engei( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: DepartmentStoreEngei_Item )
@@ -1138,9 +1137,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( DepartmentStoreEngei_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( DepartmentStoreEngei_Item[choice].id, a );
 		}
 	}
 	
@@ -1165,6 +1162,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_HomeCenter( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: HomeCenter_Item )
@@ -1174,9 +1173,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( HomeCenter_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( HomeCenter_Item[choice].id, a );
 		}
 	}
 	
@@ -1195,6 +1192,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_HomeCenter_Engei( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: HomeCenterEngei_Item )
@@ -1204,9 +1203,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( HomeCenterEngei_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( HomeCenterEngei_Item[choice].id, a );
 		}
 	}
 	
@@ -1236,6 +1233,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_SuperMarket( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: SuperMarket_Item )
@@ -1245,9 +1244,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( SuperMarket_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( SuperMarket_Item[choice].id, a );
 		}
 	}
 	
@@ -1263,6 +1260,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_SuperMarketandConvenienceStore( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: SuperMarketandConvenienceStore_Item )
@@ -1272,9 +1271,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( SuperMarketandConvenienceStore_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( SuperMarketandConvenienceStore_Item[choice].id, a );
 		}
 	}
 	
@@ -1298,6 +1295,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_ConvenienceStore( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: ConvenienceStore_Item )
@@ -1307,9 +1306,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( ConvenienceStore_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( ConvenienceStore_Item[choice].id, a );
 		}
 	}
 	
@@ -1327,6 +1324,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Syuten( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: Syuten_Item )
@@ -1336,9 +1335,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( Syuten_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( Syuten_Item[choice].id, a );
 		}
 	}
 	
@@ -1355,6 +1352,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Cloth_shop( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: Cloth_shop_Item )
@@ -1364,9 +1363,7 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( Cloth_shop_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( Cloth_shop_Item[choice].id, a );
 		}
 	}
 	
@@ -1385,6 +1382,8 @@ namespace	CTRPluginFramework
 	};
 	void Change_Accessory_Shop( MenuEntry *entry )
 	{
+		u16 a;
+
 		items.clear();
 		if( items.empty() )
 		for( const CHARS_U32_MAP &i: Accessory_Shop_Item )
@@ -1394,12 +1393,10 @@ namespace	CTRPluginFramework
 		if( choice >= 0 )
 		{
 			Keyboard aiueo( "指定したアイテムに変化。" );
-			u16 a;
-			aiueo.Open( a );
-			Process::Write16( Accessory_Shop_Item[choice].id, a );
+			if( aiueo.Open( a ) >= 0 ) Process::Write16( Accessory_Shop_Item[choice].id, a );
 		}
 	}
-	
+//zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz
 	// ---------------------------------------------------------------
 	// 靴商品変更
 	// ---------------------------------------------------------------
@@ -1959,7 +1956,7 @@ namespace	CTRPluginFramework
 		if( items.empty() )
 		for( const CHARS_U8_MAP &i: motion )
 			items.push_back( i.name );
-		Keyboard keyboard( "指定したモーションに変化。", items );
+		Keyboard keyboard( "指定したモーションに変化", items );
 		int choice = keyboard.Open();
 		if( choice >= 0 ) motion_ekiin = motion[choice].id;
 	}
@@ -2914,5 +2911,94 @@ namespace	CTRPluginFramework
 			for( a = (u8 *)0x31FA3300; a <= (u8 *)0x31FA5AFF; a++ ) *a = fxx;
 		}
 	}
+// -------------------------------------------------------------------
+// 村/商店街の座標からmemory位置を計算
+// -------------------------------------------------------------------
+	u32 get_pos1( u32 x, u32 y )
+	{
+		u32 reg0;
+		u32 reg1;
+
+		reg0 = x % 0x10;
+		x /= 0x10;
+		reg1 = y % 0x10;
+		y /= 0x10;
+		reg0 *= 0x4;	// *4
+		reg1 *= 0x40;	// *16*4
+		x *= 0x400;		// *16*4
+		y *= 0x1400;	// *80*4
+		return( reg0 + reg1 + x + y );
+	}
+// ---------------------------------------------------------
+struct ITEM_MAP {
+	u16			code;
+	const char	*name1; // 表示用
+	const char	*name2; // 検索用
+};
+	//1.2
+	// ---------------------------------------------------------------
+	// 歩いたところに物を置く
+	// ---------------------------------------------------------------
+	void walk_put_item( MenuEntry *entry )
+	{
+		u32 *g_town_items = (u32 *)0x31F9CED8;
+		u32	*g_my_inv = (u32 *)0x31F50670;
+		float *g_outdoor_pos_x = (float *)0x33099E50;
+		float *g_outdoor_pos_y = (float *)0x33099E58;
+		float *g_indoor_pos_x = (float *)0x33099F7C;
+		float *g_indoor_pos_y = (float *)0x33099F84;
+		u8	*g_room0 = (u8 *)0x319C265C;
+
+		float		*tmp_pos_x, *tmp_pos_y;
+		int			x, y;
+		u32			offset;
+
+		if( *g_location == -1 )
+		{ // 室外
+			tmp_pos_x = g_outdoor_pos_x;
+			tmp_pos_y = g_outdoor_pos_y;
+		}
+		else { // 室内
+			tmp_pos_x = g_indoor_pos_x;
+			tmp_pos_y = g_indoor_pos_y;
+		}
+		x = (int)( *tmp_pos_x / 0x20 );
+		y = (int)( *tmp_pos_y / 0x20 );
+
+		if( *g_room0 == 0x00 )
+		{ // 外,地上
+			if( x >= 16 && x < 96 && y >= 16 && y < 90 )
+			{
+				x -= 0x10;					// offset
+				y -= 0x10;					// offset
+				offset = get_pos1( x, y );	// 村
+				g_town_items[offset / sizeof( u32 )] = *g_my_inv;
+			}
+		}
+	}
 	
+	// ---------------------------------------------------------------
+	// 広場の木サイズ変更
+	// ---------------------------------------------------------------
+	static const	std::vector< CHARS_U32_MAP > Tree size =
+	{
+		{ 0x00, "植えたて" },
+		{ 0x01, "一段階目" },
+		{ 0x02, "二段階目" },
+		{ 0x03, "三段階目" },
+		{ 0x04, "四段階目" },
+		{ 0x05, "五段階目" },
+		{ 0x06, "六段階目" },
+		{ 0x07, "最終段階" },
+	};
+	void Tree_size_change( MenuEntry *entry )
+	{
+		items.clear();
+		if( items.empty() )
+		for( const CHARS_U32_MAP &i: Tree_size )
+			items.push_back( i.name );
+		Keyboard keyboard( "木のサイズを選択してください。", items );
+		int choice = keyboard.Open();
+		if( choice >= 0 ) Process::Write8( 0x31F95886, Tree_size[choice].id );
+	}
 }

@@ -138,9 +138,9 @@ namespace	CTRPluginFramework
 				EntryWithHotkey(new MenuEntry("" << Color::Blue << "見えない壁判定変更", Hantei2, "" << Color::SkyBlue << "キーを押すと、見えない壁の判定が変わる。"),
 					{ Hotkey(Key::L | DPadUp, "壁貫通"), 
 					Hotkey(Key::L | DPadDown, "壁貫通不可") }),
-				EntryWithHotkey(new MenuEntry("" << Color::Blue << "室内判定変更", Hantei3, "" << Color::SkyBlue << "キーを押すと、室内が家の判定になる。"),
-					{ Hotkey(Key::Y | DPadUp, "家"), 
-					Hotkey(Key::Y | DPadDown, "建物") }),
+//				EntryWithHotkey(new MenuEntry("" << Color::Blue << "室内判定変更", Hantei3, "" << Color::SkyBlue << "キーを押すと、室内が家の判定になる。"),
+//					{ Hotkey(Key::Y | DPadUp, "家"), 
+//					Hotkey(Key::Y | DPadDown, "建物") }),
 				new MenuEntry("" << Color::Blue << "プレイヤー判定変更", nullptr, change_Player),
 		} );
 
@@ -168,7 +168,7 @@ namespace	CTRPluginFramework
 		menu += new MenuFolder( "" << Color::Magenta << "画面", "" << Color::SkyBlue << "画面系フォルダ",
 		{
 				new MenuEntry("" << Color::Magenta << "村の明るさ変更", nullptr, akarusa_change, "" << Color::SkyBlue << "指定した村の明るさに変更します。"),
-				new MenuEntry("" << Color::SkyBlue << "ゲームスピード上昇", change_gamespeed, "" << Color::SkyBlue << "オンにするとゲームスピードが上昇する。"),
+				new MenuEntry("" << Color::Magenta << "ゲームスピード上昇", change_gamespeed, "" << Color::SkyBlue << "オンにするとゲームスピードが上昇する。"),
 		} );
 
 		menu += new MenuFolder( "" << Color::SkyBlue << "室外", "" << Color::SkyBlue << "室外系フォルダ",
@@ -178,14 +178,14 @@ namespace	CTRPluginFramework
 				new MenuEntry("" << Color::SkyBlue << "道具機能変更", nullptr, Tools_1, "" << Color::SkyBlue << "道具の機能を変更できる。網、釣り竿、スコップ以外を持っているとクラッシュする危険性がある"),
 				new MenuEntry("" << Color::SkyBlue << "道具持ち方変更", nullptr, Tools_2, "" << Color::SkyBlue << "道具の持ち方を変更できる。"),
 				new MenuEntry("" << Color::SkyBlue << "はや着替え", Inventory2, "" << Color::SkyBlue << "オンにすると着替えが早くなる。"),
-				EntryWithHotkey(new MenuEntry("" << Color::SkyBlue << "速く走る", Player1, "" << Color::SkyBlue << "キーを押すと速く走れる"), Hotkey(Key::B, "速く走る")),
+//				EntryWithHotkey(new MenuEntry("" << Color::SkyBlue << "速く走る", Player1, "" << Color::SkyBlue << "キーを押すと速く走れる"), 
+//				Hotkey(Key::B, "速く走る")),
 				EntryWithHotkey(new MenuEntry("" << Color::SkyBlue << "アイテムを無限に置く", Inventory1, "" << Color::SkyBlue << "キーを押すとアイテムを無限に置けるようになる。"),
-			{
-				Hotkey(Key::R | DPadRight, "アイテムを無限に置く"),
-					Hotkey(Key::R | DPadLeft, "アイテムを普通に置く") }),
-				new MenuEntry("" << Color::SkyBlue << "室外アイテム変更", nullptr, Change_Item, "" << Color::SkyBlue << "何かをしたアイテムを変更する"),
-				new MenuEntry("" << Color::SkyBlue << "室外アイテム変更(Frag)", nullptr, Change_Item_Frag, "" << Color::SkyBlue << "何かをしたアイテムを変化する(Frag指定用)"),
-				new MenuEntry("" << Color::SkyBlue << "室外アイテム変更固定", Change_Item_kotei),
+				{ Hotkey(Key::R | DPadRight, "アイテムを無限に置く"),
+				Hotkey(Key::R | DPadLeft, "アイテムを普通に置く") }),
+//				new MenuEntry("" << Color::SkyBlue << "室外アイテム変更", nullptr, Change_Item, "" << Color::SkyBlue << "何かをしたアイテムを変更する"),
+//				new MenuEntry("" << Color::SkyBlue << "室外アイテム変更(Frag)", nullptr, Change_Item_Frag, "" << Color::SkyBlue << "何かをしたアイテムを変化する(Frag指定用)"),
+//				new MenuEntry("" << Color::SkyBlue << "室外アイテム変更固定", Change_Item_kotei),
 		} );
 		MenuFolder	*omise = new MenuFolder( "" << Color::LimeGreen << "お店" );
 //		{
@@ -248,61 +248,62 @@ namespace	CTRPluginFramework
 		} );
 		
 		
-		menu += new MenuFolder( "" << Color::ForestGreen << "村情報", "" << Color::SkyBlue << "村情報系フォルダ",
+		menu += new MenuFolder( "" << Color::Blank << "村情報", "" << Color::SkyBlue << "村情報系フォルダ",
 		{
-			new MenuEntry("" << Color::Yellow << "芝生の濃さ変更", nullptr, sibahu, "" << Color::SkyBlue << "リロードで反映"),
+			new MenuEntry("" << Color::Blank << "芝生の濃さ変更", nullptr, sibahu, "" << Color::SkyBlue << "リロードで反映"),
 		} );
 		
-		menu += new MenuFolder( "" << Color::ForestGreen << "無人島", "" << Color::SkyBlue << "無人島系フォルダ",
+		menu += new MenuFolder( "" << Color::Gainsboro << "無人島", "" << Color::SkyBlue << "無人島系フォルダ",
 		{
-				new MenuEntry("" << Color::Yellow << "歩数変更P1", nullptr, mujintou_hosuuP1),
-				new MenuEntry("" << Color::Yellow << "歩数変更P2", nullptr, mujintou_hosuuP2),
-				new MenuEntry("" << Color::Yellow << "歩数変更P3", nullptr, mujintou_hosuuP3),
-				new MenuEntry("" << Color::Yellow << "歩数固定", hosuukotei),
-				new MenuEntry("" << Color::Yellow << "歩いた時のスコア変更", nullptr, mujintou_WalkScore),
-				new MenuEntry("" << Color::Yellow << "歩いた時のスコア固定", Walkscore_kotei),
-				new MenuEntry("" << Color::Yellow << "ステージ開放率変更", nullptr, mujinntou_stage_open),
-				new MenuEntry("" << Color::Yellow << "棒所持数変更", nullptr, mujintou_Item1),
-				new MenuEntry("" << Color::Yellow << "糸所持数変更", nullptr, mujintou_Item2),
-				new MenuEntry("" << Color::Yellow << "布きれ所持数変更", nullptr, mujintou_Item3),
-				new MenuEntry("" << Color::Yellow << "石ころ所持数変更", nullptr, mujintou_Item4),
-				new MenuEntry("" << Color::Yellow << "ぎんこうせき所持数変更", nullptr, mujintou_Item5),
-				new MenuEntry("" << Color::Yellow << "きんこうせき所持数変更", nullptr, mujintou_Item6),
-				new MenuEntry("" << Color::Yellow << "おくすり所持数変更", nullptr, mujintou_Item7),
-				new MenuEntry("" << Color::Yellow << "丸太の入手数変更", nullptr, mujintou_hoof1),
-				new MenuEntry("" << Color::Yellow << "船の旗の入手数変更", nullptr, mujintou_hoof2),
-				new MenuEntry("" << Color::Yellow << "丸太の残りの数変更", nullptr, mujintou_hoof3),
-				new MenuEntry("" << Color::Yellow << "船の旗の残りの数変更", nullptr, mujintou_hoof4),
-				new MenuEntry("" << Color::Yellow << "釣り竿所持変更", nullptr, mujintou_Tool1),
-				new MenuEntry("" << Color::Yellow << "パチンコ所持変更", nullptr, mujintou_Tool2),
-				new MenuEntry("" << Color::Yellow << "網所持変更", nullptr, mujintou_Tool3),
-				new MenuEntry("" << Color::Yellow << "スコップ所持変更", nullptr, mujintou_Tool4),
-				new MenuEntry("" << Color::Yellow << "銀の釣り竿所持変更", nullptr, mujintou_STool1),
-				new MenuEntry("" << Color::Yellow << "銀のパチンコ所持変更", nullptr, mujintou_STool2),
-				new MenuEntry("" << Color::Yellow << "銀の網所持変更", nullptr, mujintou_STool3),
-				new MenuEntry("" << Color::Yellow << "銀のスコップ所持変更", nullptr, mujintou_STool4),
-				new MenuEntry("" << Color::Yellow << "金の釣り竿所持変更", nullptr, mujintou_GTool1),
-				new MenuEntry("" << Color::Yellow << "金のパチンコ所持変更", nullptr, mujintou_GTool2),
-				new MenuEntry("" << Color::Yellow << "金の網所持変更", nullptr, mujintou_GTool3),
-				new MenuEntry("" << Color::Yellow << "金のスコップ所持変更", nullptr, mujintou_GTool4),
-				new MenuEntry("" << Color::Yellow << "残り日数変更", nullptr, mujintou_hizuke1),
-				new MenuEntry("" << Color::Yellow << "経過日数変更", nullptr, mujintou_hizuke2),
-				new MenuEntry("" << Color::Yellow << "食料落下数変更", nullptr, mujintou_syokuryou1),
-				new MenuEntry("" << Color::Yellow << "リンゴゲージ変更", nullptr, mujintou_syokuryou2),
-				new MenuEntry("" << Color::Yellow << "食料所持数変更", nullptr, mujintou_syokuryou3),
-				new MenuEntry("" << Color::Yellow << "落とし穴無効化", nullptr, mujintou_Otosiana),
-				new MenuEntry("" << Color::Yellow << "特技変更", nullptr, mujintou_TokugiP1),
-				new MenuEntry("" << Color::Yellow << "特技変更", nullptr, mujintou_TokugiP2),
-				new MenuEntry("" << Color::Yellow << "特技変更", nullptr, mujintou_TokugiP3),
-				new MenuEntry("" << Color::Yellow << "好きな食べ物変更", nullptr, mujintou_FoodP1),
-				new MenuEntry("" << Color::Yellow << "好きな食べ物変更", nullptr, mujintou_FoodP2),
-				new MenuEntry("" << Color::Yellow << "好きな食べ物変更", nullptr, mujintou_FoodP3),
+				new MenuEntry("" << Color::Gainsboro << "歩数変更P1", nullptr, mujintou_hosuuP1),
+				new MenuEntry("" << Color::Gainsboro << "歩数変更P2", nullptr, mujintou_hosuuP2),
+				new MenuEntry("" << Color::Gainsboro << "歩数変更P3", nullptr, mujintou_hosuuP3),
+				new MenuEntry("" << Color::Gainsboro << "歩数固定", hosuukotei),
+				new MenuEntry("" << Color::Gainsboro << "歩いた時のスコア変更", nullptr, mujintou_WalkScore),
+				new MenuEntry("" << Color::Gainsboro << "歩いた時のスコア固定", Walkscore_kotei),
+				new MenuEntry("" << Color::Gainsboro << "ステージ開放率変更", nullptr, mujinntou_stage_open),
+				new MenuEntry("" << Color::Gainsboro << "棒所持数変更", nullptr, mujintou_Item1),
+				new MenuEntry("" << Color::Gainsboro << "糸所持数変更", nullptr, mujintou_Item2),
+				new MenuEntry("" << Color::Gainsboro << "布きれ所持数変更", nullptr, mujintou_Item3),
+				new MenuEntry("" << Color::Gainsboro << "石ころ所持数変更", nullptr, mujintou_Item4),
+				new MenuEntry("" << Color::Gainsboro << "ぎんこうせき所持数変更", nullptr, mujintou_Item5),
+				new MenuEntry("" << Color::Gainsboro << "きんこうせき所持数変更", nullptr, mujintou_Item6),
+				new MenuEntry("" << Color::Gainsboro << "おくすり所持数変更", nullptr, mujintou_Item7),
+				new MenuEntry("" << Color::Gainsboro << "丸太の入手数変更", nullptr, mujintou_hoof1),
+				new MenuEntry("" << Color::Gainsboro << "船の旗の入手数変更", nullptr, mujintou_hoof2),
+				new MenuEntry("" << Color::Gainsboro << "丸太の残りの数変更", nullptr, mujintou_hoof3),
+				new MenuEntry("" << Color::Gainsboro << "船の旗の残りの数変更", nullptr, mujintou_hoof4),
+				new MenuEntry("" << Color::Gainsboro << "釣り竿所持変更", nullptr, mujintou_Tool1),
+				new MenuEntry("" << Color::Gainsboro << "パチンコ所持変更", nullptr, mujintou_Tool2),
+				new MenuEntry("" << Color::Gainsboro << "網所持変更", nullptr, mujintou_Tool3),
+				new MenuEntry("" << Color::Gainsboro << "スコップ所持変更", nullptr, mujintou_Tool4),
+				new MenuEntry("" << Color::Gainsboro << "銀の釣り竿所持変更", nullptr, mujintou_STool1),
+				new MenuEntry("" << Color::Gainsboro << "銀のパチンコ所持変更", nullptr, mujintou_STool2),
+				new MenuEntry("" << Color::Gainsboro << "銀の網所持変更", nullptr, mujintou_STool3),
+				new MenuEntry("" << Color::Gainsboro << "銀のスコップ所持変更", nullptr, mujintou_STool4),
+				new MenuEntry("" << Color::Gainsboro << "金の釣り竿所持変更", nullptr, mujintou_GTool1),
+				new MenuEntry("" << Color::Gainsboro << "金のパチンコ所持変更", nullptr, mujintou_GTool2),
+				new MenuEntry("" << Color::Gainsboro << "金の網所持変更", nullptr, mujintou_GTool3),
+				new MenuEntry("" << Color::Gainsboro << "金のスコップ所持変更", nullptr, mujintou_GTool4),
+				new MenuEntry("" << Color::Gainsboro << "残り日数変更", nullptr, mujintou_hizuke1),
+				new MenuEntry("" << Color::Gainsboro << "経過日数変更", nullptr, mujintou_hizuke2),
+				new MenuEntry("" << Color::Gainsboro << "食料落下数変更", nullptr, mujintou_syokuryou1),
+				new MenuEntry("" << Color::Gainsboro << "リンゴゲージ変更", nullptr, mujintou_syokuryou2),
+				new MenuEntry("" << Color::Gainsboro << "食料所持数変更", nullptr, mujintou_syokuryou3),
+				new MenuEntry("" << Color::Gainsboro << "落とし穴無効化", nullptr, mujintou_Otosiana),
+				new MenuEntry("" << Color::Gainsboro << "特技変更", nullptr, mujintou_TokugiP1),
+				new MenuEntry("" << Color::Gainsboro << "特技変更", nullptr, mujintou_TokugiP2),
+				new MenuEntry("" << Color::Gainsboro << "特技変更", nullptr, mujintou_TokugiP3),
+				new MenuEntry("" << Color::Gainsboro << "好きな食べ物変更", nullptr, mujintou_FoodP1),
+				new MenuEntry("" << Color::Gainsboro << "好きな食べ物変更", nullptr, mujintou_FoodP2),
+				new MenuEntry("" << Color::Gainsboro << "好きな食べ物変更", nullptr, mujintou_FoodP3),
 		} );
 
-//		menu += new MenuFolder( "" << Color::Yellow << "Test", "" << Color::SkyBlue << "Test Folder",
-//		{
-//				
-//		} );
+		menu += new MenuFolder( "" << Color::Yellow << "Test", "" << Color::SkyBlue << "Test Folder",
+		{
+				new MenuEntry("" << Color::Blue << "歩いて物を置く", walk_put_item, "" << Color::Red << "オフライン限定\n" << Color::SkyBlue << "オンにするとポケットの一番左上においてあるアイテムを置く"),
+				new MenuEntry("" << Color::Blue << "広場の木サイズ変更", Tree_size_change, << Color::SkyBlue << "オンにするとポケットの一番左上においてあるアイテムを置く"),
+		} );
 	}
 	// -----------------------------------------------------------------------------
 	int main( void )
@@ -323,11 +324,11 @@ namespace	CTRPluginFramework
     }
     else 
     {
-    OSD::Notify(Color::Orange<<"Pass is 45451919.You`re fuck");
+    OSD::Notify(Color::Orange<<"Pass is 45451919.Fuck you");
     abort();
     }
     }
-		PluginMenu	*menu = new PluginMenu( "" << Color::Red << "J" "" << Color::Green << "O" "" << Color::Blue << "K" "" << Color::Yellow << "E" "" << Color::Magenta << "R", 1, 1, 0, about );
+		PluginMenu	*menu = new PluginMenu( "" << Color::Red << "J" "" << Color::Green << "O" "" << Color::Blue << "K" "" << Color::Yellow << "E" "" << Color::Magenta << "R" "" << Color::Red << "α", 1, 2, 0, about );
 		menu->SynchronizeWithFrame( true );
 		CreateMenu( *menu );
 		menu->Run();
